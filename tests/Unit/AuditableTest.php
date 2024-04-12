@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Tests;
+namespace wilianx7\Auditing\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -8,18 +8,18 @@ use Illuminate\Foundation\Testing\Assert;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Encoders\Base64Encoder;
-use OwenIt\Auditing\Exceptions\AuditableTransitionException;
-use OwenIt\Auditing\Exceptions\AuditingException;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Redactors\LeftRedactor;
-use OwenIt\Auditing\Redactors\RightRedactor;
-use OwenIt\Auditing\Resolvers\UrlResolver;
-use OwenIt\Auditing\Tests\Models\ApiModel;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\ArticleExcludes;
-use OwenIt\Auditing\Tests\Models\User;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Encoders\Base64Encoder;
+use wilianx7\Auditing\Exceptions\AuditableTransitionException;
+use wilianx7\Auditing\Exceptions\AuditingException;
+use wilianx7\Auditing\Models\Audit;
+use wilianx7\Auditing\Redactors\LeftRedactor;
+use wilianx7\Auditing\Redactors\RightRedactor;
+use wilianx7\Auditing\Resolvers\UrlResolver;
+use wilianx7\Auditing\Tests\Models\ApiModel;
+use wilianx7\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Tests\Models\ArticleExcludes;
+use wilianx7\Auditing\Tests\Models\User;
 use ReflectionClass;
 
 class AuditableTest extends AuditingTestCase
@@ -938,7 +938,7 @@ class AuditableTest extends AuditingTestCase
     public function itFailsToTransitionWhenTheAuditAuditableTypeDoesNotMatchTheModelType()
     {
         $this->expectException(AuditableTransitionException::class);
-        $this->expectExceptionMessage('Expected Auditable type OwenIt\Auditing\Tests\Models\Article, got OwenIt\Auditing\Tests\Models\User instead');
+        $this->expectExceptionMessage('Expected Auditable type wilianx7\Auditing\Tests\Models\Article, got wilianx7\Auditing\Tests\Models\User instead');
 
         $audit = factory(Audit::class)->make([
             'auditable_type' => User::class,
@@ -1120,7 +1120,7 @@ class AuditableTest extends AuditingTestCase
             $model->transitionTo($incompatibleAudit);
         } catch (AuditableTransitionException $e) {
             $this->assertSame(
-                'Incompatibility between [OwenIt\Auditing\Tests\Models\Article:1] and [OwenIt\Auditing\Models\Audit:3]',
+                'Incompatibility between [wilianx7\Auditing\Tests\Models\Article:1] and [wilianx7\Auditing\Models\Audit:3]',
                 $e->getMessage()
             );
 

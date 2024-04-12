@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Models;
+namespace wilianx7\Auditing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $user
  * @property mixed $auditable.
  */
-class Audit extends Model implements \OwenIt\Auditing\Contracts\Audit
+class Audit extends Model implements \wilianx7\Auditing\Contracts\Audit
 {
-    use \OwenIt\Auditing\Audit;
+    use \wilianx7\Auditing\Audit;
 
     /**
      * {@inheritdoc}

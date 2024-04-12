@@ -2,8 +2,8 @@
 
 namespace DummyNamespace;
 
-use OwenIt\Auditing\Contracts\Resolver;
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Contracts\Auditable;
 
 class DummyClass implements Resolver
 {

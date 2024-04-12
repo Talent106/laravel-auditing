@@ -1,15 +1,15 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace wilianx7\Auditing\Tests\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
 class User extends Model implements Auditable, Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
-    use \OwenIt\Auditing\Auditable;
+    use \wilianx7\Auditing\Auditable;
 
     /**
      * {@inheritdoc}

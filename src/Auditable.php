@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing;
+namespace wilianx7\Auditing;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -9,12 +9,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
-use OwenIt\Auditing\Contracts\AttributeEncoder;
-use OwenIt\Auditing\Contracts\AttributeRedactor;
-use OwenIt\Auditing\Contracts\Resolver;
-use OwenIt\Auditing\Events\AuditCustom;
-use OwenIt\Auditing\Exceptions\AuditableTransitionException;
-use OwenIt\Auditing\Exceptions\AuditingException;
+use wilianx7\Auditing\Contracts\AttributeEncoder;
+use wilianx7\Auditing\Contracts\AttributeRedactor;
+use wilianx7\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Events\AuditCustom;
+use wilianx7\Auditing\Exceptions\AuditableTransitionException;
+use wilianx7\Auditing\Exceptions\AuditingException;
 
 trait Auditable
 {
@@ -381,7 +381,7 @@ trait Auditable
             $userResolver = Config::get('audit.resolver.user');
         }
 
-        if (is_subclass_of($userResolver, \OwenIt\Auditing\Contracts\UserResolver::class)) {
+        if (is_subclass_of($userResolver, \wilianx7\Auditing\Contracts\UserResolver::class)) {
             return call_user_func([$userResolver, 'resolve'], $this);
         }
 

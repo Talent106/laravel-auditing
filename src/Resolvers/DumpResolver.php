@@ -1,9 +1,9 @@
 <?php
 
-namespace OwenIt\Auditing\Resolvers;
+namespace wilianx7\Auditing\Resolvers;
 
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Resolver;
 
 class DumpResolver implements Resolver
 {

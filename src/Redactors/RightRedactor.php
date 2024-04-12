@@ -1,8 +1,8 @@
 <?php
 
-namespace OwenIt\Auditing\Redactors;
+namespace wilianx7\Auditing\Redactors;
 
-class RightRedactor implements \OwenIt\Auditing\Contracts\AttributeRedactor
+class RightRedactor implements \wilianx7\Auditing\Contracts\AttributeRedactor
 {
     /**
      * {@inheritdoc}

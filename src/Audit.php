@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing;
+namespace wilianx7\Auditing;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use OwenIt\Auditing\Contracts\AttributeEncoder;
+use wilianx7\Auditing\Contracts\AttributeEncoder;
 
 trait Audit
 {

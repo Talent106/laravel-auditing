@@ -1,12 +1,12 @@
 <?php
 
-namespace OwenIt\Auditing\Resolvers;
+namespace wilianx7\Auditing\Resolvers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
-class UserResolver implements \OwenIt\Auditing\Contracts\UserResolver
+class UserResolver implements \wilianx7\Auditing\Contracts\UserResolver
 {
     /**
      * @return \Illuminate\Contracts\Auth\Authenticatable|null

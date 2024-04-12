@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'implementation' => OwenIt\Auditing\Models\Audit::class,
+    'implementation' => wilianx7\Auditing\Models\Audit::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
             'web',
             'api'
         ],
-        'resolver'     => OwenIt\Auditing\Resolvers\UserResolver::class
+        'resolver'     => wilianx7\Auditing\Resolvers\UserResolver::class
     ],
 
     /*
@@ -42,9 +42,9 @@ return [
     |
     */
     'resolvers' => [
-        'ip_address' => OwenIt\Auditing\Resolvers\IpAddressResolver::class,
-        'user_agent' => OwenIt\Auditing\Resolvers\UserAgentResolver::class,
-        'url'        => OwenIt\Auditing\Resolvers\UrlResolver::class,
+        'ip_address' => wilianx7\Auditing\Resolvers\IpAddressResolver::class,
+        'user_agent' => wilianx7\Auditing\Resolvers\UserAgentResolver::class,
+        'url'        => wilianx7\Auditing\Resolvers\UrlResolver::class,
     ],
 
     /*

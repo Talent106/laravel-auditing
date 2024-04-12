@@ -1,12 +1,12 @@
 <?php
 
-namespace OwenIt\Auditing\Facades;
+namespace wilianx7\Auditing\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \OwenIt\Auditing\Contracts\AuditDriver auditDriver(\OwenIt\Auditing\Contracts\Auditable $model);
- * @method static void execute(\OwenIt\Auditing\Contracts\Auditable $model);
+ * @method static \wilianx7\Auditing\Contracts\AuditDriver auditDriver(\wilianx7\Auditing\Contracts\Auditable $model);
+ * @method static void execute(\wilianx7\Auditing\Contracts\Auditable $model);
  */
 class Auditor extends Facade
 {
@@ -15,6 +15,6 @@ class Auditor extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \OwenIt\Auditing\Contracts\Auditor::class;
+        return \wilianx7\Auditing\Contracts\Auditor::class;
     }
 }

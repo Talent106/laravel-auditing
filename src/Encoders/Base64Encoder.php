@@ -1,8 +1,8 @@
 <?php
 
-namespace OwenIt\Auditing\Encoders;
+namespace wilianx7\Auditing\Encoders;
 
-class Base64Encoder implements \OwenIt\Auditing\Contracts\AttributeEncoder
+class Base64Encoder implements \wilianx7\Auditing\Contracts\AttributeEncoder
 {
     /**
      * {@inheritdoc}

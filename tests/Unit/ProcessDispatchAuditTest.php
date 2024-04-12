@@ -1,14 +1,14 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Unit;
+namespace wilianx7\Auditing\Tests\Unit;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
-use OwenIt\Auditing\Events\DispatchAudit;
-use OwenIt\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Events\DispatchAudit;
+use wilianx7\Auditing\Tests\Models\Article;
 use Illuminate\Events\CallQueuedListener;
-use OwenIt\Auditing\Tests\AuditingTestCase;
-use OwenIt\Auditing\Listeners\ProcessDispatchAudit;
+use wilianx7\Auditing\Tests\AuditingTestCase;
+use wilianx7\Auditing\Listeners\ProcessDispatchAudit;
 
 class ProcessDispatchAuditTest extends AuditingTestCase
 {

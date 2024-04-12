@@ -1,12 +1,12 @@
 <?php
 
-namespace OwenIt\Auditing;
+namespace wilianx7\Auditing;
 
 use Illuminate\Support\Facades\Config;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Events\DispatchAudit;
-use OwenIt\Auditing\Events\DispatchingAudit;
-use OwenIt\Auditing\Facades\Auditor;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Events\DispatchAudit;
+use wilianx7\Auditing\Events\DispatchingAudit;
+use wilianx7\Auditing\Facades\Auditor;
 
 class AuditableObserver
 {
@@ -20,7 +20,7 @@ class AuditableObserver
     /**
      * Handle the retrieved event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -32,7 +32,7 @@ class AuditableObserver
     /**
      * Handle the created event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -44,7 +44,7 @@ class AuditableObserver
     /**
      * Handle the updated event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class AuditableObserver
     /**
      * Handle the deleted event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -71,7 +71,7 @@ class AuditableObserver
     /**
      * Handle the restoring event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -86,7 +86,7 @@ class AuditableObserver
     /**
      * Handle the restored event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */
@@ -121,7 +121,7 @@ class AuditableObserver
     /**
      * Fire the Auditing event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return bool
      */

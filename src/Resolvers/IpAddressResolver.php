@@ -1,10 +1,10 @@
 <?php
 
-namespace OwenIt\Auditing\Resolvers;
+namespace wilianx7\Auditing\Resolvers;
 
 use Illuminate\Support\Facades\Request;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Resolver;
 
 class IpAddressResolver implements Resolver
 {

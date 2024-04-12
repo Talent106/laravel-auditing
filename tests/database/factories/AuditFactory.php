@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\User;
+use wilianx7\Auditing\Models\Audit;
+use wilianx7\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Tests\Models\User;
 
 /*
 |--------------------------------------------------------------------------

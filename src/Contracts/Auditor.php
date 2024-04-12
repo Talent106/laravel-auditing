@@ -1,13 +1,13 @@
 <?php
 
-namespace OwenIt\Auditing\Contracts;
+namespace wilianx7\Auditing\Contracts;
 
 interface Auditor
 {
     /**
      * Get an audit driver instance.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return AuditDriver
      */
@@ -16,7 +16,7 @@ interface Auditor
     /**
      * Perform an audit.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return void
      */

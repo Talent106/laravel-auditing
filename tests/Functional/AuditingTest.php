@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Functional;
+namespace wilianx7\Auditing\Tests\Functional;
 
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
@@ -9,16 +9,16 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Event;
 use InvalidArgumentException;
-use OwenIt\Auditing\Events\AuditCustom;
-use OwenIt\Auditing\Events\Auditing;
-use OwenIt\Auditing\Exceptions\AuditingException;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\AuditingTestCase;
-use OwenIt\Auditing\Tests\fixtures\TenantResolver;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\ArticleExcludes;
-use OwenIt\Auditing\Tests\Models\Category;
-use OwenIt\Auditing\Tests\Models\User;
+use wilianx7\Auditing\Events\AuditCustom;
+use wilianx7\Auditing\Events\Auditing;
+use wilianx7\Auditing\Exceptions\AuditingException;
+use wilianx7\Auditing\Models\Audit;
+use wilianx7\Auditing\Tests\AuditingTestCase;
+use wilianx7\Auditing\Tests\fixtures\TenantResolver;
+use wilianx7\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Tests\Models\ArticleExcludes;
+use wilianx7\Auditing\Tests\Models\Category;
+use wilianx7\Auditing\Tests\Models\User;
 
 class AuditingTest extends AuditingTestCase
 {

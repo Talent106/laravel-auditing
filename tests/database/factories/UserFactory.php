@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use OwenIt\Auditing\Tests\Models\User;
+use wilianx7\Auditing\Tests\Models\User;
 
 /*
 |--------------------------------------------------------------------------

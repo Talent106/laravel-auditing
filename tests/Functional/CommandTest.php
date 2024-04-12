@@ -1,8 +1,8 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Functional;
+namespace wilianx7\Auditing\Tests\Functional;
 
-use OwenIt\Auditing\Tests\AuditingTestCase;
+use wilianx7\Auditing\Tests\AuditingTestCase;
 
 class CommandTest extends AuditingTestCase
 {

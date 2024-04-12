@@ -1,19 +1,19 @@
 <?php
 
-namespace OwenIt\Auditing;
+namespace wilianx7\Auditing;
 
 if (app() instanceof \Illuminate\Foundation\Application) {
-    class_alias(\Illuminate\Foundation\Support\Providers\EventServiceProvider::class, '\OwenIt\Auditing\ServiceProvider');
+    class_alias(\Illuminate\Foundation\Support\Providers\EventServiceProvider::class, '\wilianx7\Auditing\ServiceProvider');
 } else {
-    class_alias(\Laravel\Lumen\Providers\EventServiceProvider::class, '\OwenIt\Auditing\ServiceProvider');
+    class_alias(\Laravel\Lumen\Providers\EventServiceProvider::class, '\wilianx7\Auditing\ServiceProvider');
 }
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Config;
-use OwenIt\Auditing\Events\AuditCustom;
-use OwenIt\Auditing\Events\DispatchAudit;
-use OwenIt\Auditing\Listeners\RecordCustomAudit;
-use OwenIt\Auditing\Listeners\ProcessDispatchAudit;
+use wilianx7\Auditing\Events\AuditCustom;
+use wilianx7\Auditing\Events\DispatchAudit;
+use wilianx7\Auditing\Listeners\RecordCustomAudit;
+use wilianx7\Auditing\Listeners\ProcessDispatchAudit;
 
 class AuditingEventServiceProvider extends ServiceProvider
 {

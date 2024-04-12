@@ -1,12 +1,12 @@
 <?php
 
-namespace OwenIt\Auditing\Resolvers;
+namespace wilianx7\Auditing\Resolvers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
-class UrlResolver implements \OwenIt\Auditing\Contracts\Resolver
+class UrlResolver implements \wilianx7\Auditing\Contracts\Resolver
 {
     /**
      * @return string

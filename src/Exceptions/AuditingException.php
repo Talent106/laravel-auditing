@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Exceptions;
+namespace wilianx7\Auditing\Exceptions;
 
 use Exception;
 

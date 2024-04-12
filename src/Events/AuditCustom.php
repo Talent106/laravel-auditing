@@ -1,22 +1,22 @@
 <?php
 
-namespace OwenIt\Auditing\Events;
+namespace wilianx7\Auditing\Events;
 
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
 class AuditCustom
 {
     /**
      * The Auditable model.
      *
-     * @var \OwenIt\Auditing\Contracts\Auditable
+     * @var \wilianx7\Auditing\Contracts\Auditable
      */
     public $model;
 
     /**
      * Create a new Auditing event instance.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      */
     public function __construct(Auditable $model)
     {

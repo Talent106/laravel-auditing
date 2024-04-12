@@ -1,9 +1,9 @@
 <?php
 
-namespace OwenIt\Auditing\Contracts;
+namespace wilianx7\Auditing\Contracts;
 
 /**
- * @mixin \OwenIt\Auditing\Models\Audit
+ * @mixin \wilianx7\Auditing\Models\Audit
  */
 interface Audit
 {

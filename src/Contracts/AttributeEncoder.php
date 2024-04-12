@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Contracts;
+namespace wilianx7\Auditing\Contracts;
 
 interface AttributeEncoder extends AttributeModifier
 {

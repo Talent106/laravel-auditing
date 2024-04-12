@@ -1,6 +1,6 @@
 {
-    "name": "owen-it/laravel-auditing",
-    "description": "Audit changes of your Eloquent models in Laravel/Lumen",
+    "name": "wilianx7/laravel-auditing",
+    "description": "Audit changes of your Eloquent models in Laravel/Lumen. Forked from owen-t/laravel-auditing.",
     "keywords": [
         "accountability",
         "audit",
@@ -17,29 +17,21 @@
         "revision",
         "tracking"
     ],
-    "homepage": "https://laravel-auditing.com",
+    "homepage": "https://github.com/wilianx7/laravel-auditing",
     "type": "package",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/owen-it/laravel-auditing/issues",
-        "source": "https://github.com/owen-it/laravel-auditing"
+        "issues": "https://github.com/wilianx7/laravel-auditing/issues",
+        "source": "https://github.com/wilianx7/laravel-auditing"
     },
     "authors": [
         {
-            "name": "Antério Vieira",
-            "email": "anteriovieira@gmail.com"
-        },
-        {
-            "name": "Raphael França",
-            "email": "raphaelfrancabsb@gmail.com"
-        },
-        {
-            "name": "Morten D. Hansen",
-            "email": "morten@visia.dk"
+            "name": "Wilian Hendler",
+            "email": "wilianx7@hotmail.com"
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "illuminate/console": "^7.0|^8.0|^9.0|^10.0",
         "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
         "illuminate/filesystem": "^7.0|^8.0|^9.0|^10.0",
@@ -53,16 +45,13 @@
     },
     "autoload": {
         "psr-4": {
-            "OwenIt\\Auditing\\": "src/"
+            "wilianx7\\Auditing\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OwenIt\\Auditing\\Tests\\": "tests/"
+            "wilianx7\\Auditing\\Tests\\": "tests/"
         }
-    },
-    "suggest": {
-        "irazasyed/larasupport": "Needed to publish the package configuration in Lumen"
     },
     "extra": {
         "branch-alias": {
@@ -70,7 +59,7 @@
         },
         "laravel": {
             "providers": [
-                "OwenIt\\Auditing\\AuditingServiceProvider"
+                "wilianx7\\Auditing\\AuditingServiceProvider"
             ]
         }
     },

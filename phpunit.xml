@@ -22,7 +22,7 @@
         <exclude>
             <!--
                 Group tests that are run with specific command line arguments to ensure they're
-                properly tracked in audits. See \OwenIt\Auditing\Resolvers\UrlResolver.
+                properly tracked in audits. See \wilianx7\Auditing\Resolvers\UrlResolver.
             -->
             <group>command-line-url-resolver</group>
         </exclude>

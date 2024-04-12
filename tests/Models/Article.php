@@ -1,16 +1,16 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace wilianx7\Auditing\Tests\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Tests\Casts\Money;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Tests\Casts\Money;
 
 class Article extends Model implements Auditable
 {
-    use \OwenIt\Auditing\Auditable;
+    use \wilianx7\Auditing\Auditable;
     use SoftDeletes;
 
     protected $laravel_version;

@@ -1,14 +1,14 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace wilianx7\Auditing\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
 class ApiModel extends Model implements Auditable
 {
-    use \OwenIt\Auditing\Auditable;
+    use \wilianx7\Auditing\Auditable;
     use SoftDeletes;
 
     /**

@@ -1,22 +1,22 @@
 <?php
 
-namespace OwenIt\Auditing\Contracts;
+namespace wilianx7\Auditing\Contracts;
 
 interface AuditDriver
 {
     /**
      * Perform an audit.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
-     * @return \OwenIt\Auditing\Contracts\Audit
+     * @return \wilianx7\Auditing\Contracts\Audit
      */
     public function audit(Auditable $model): ?Audit;
 
     /**
      * Remove older audits that go over the threshold.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \wilianx7\Auditing\Contracts\Auditable $model
      *
      * @return bool
      */

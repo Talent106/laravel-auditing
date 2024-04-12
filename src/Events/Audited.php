@@ -1,40 +1,40 @@
 <?php
 
-namespace OwenIt\Auditing\Events;
+namespace wilianx7\Auditing\Events;
 
-use OwenIt\Auditing\Contracts\Audit;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\AuditDriver;
+use wilianx7\Auditing\Contracts\Audit;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\AuditDriver;
 
 class Audited
 {
     /**
      * The Auditable model.
      *
-     * @var \OwenIt\Auditing\Contracts\Auditable
+     * @var \wilianx7\Auditing\Contracts\Auditable
      */
     public $model;
 
     /**
      * Audit driver.
      *
-     * @var \OwenIt\Auditing\Contracts\AuditDriver
+     * @var \wilianx7\Auditing\Contracts\AuditDriver
      */
     public $driver;
 
     /**
      * The Audit model.
      *
-     * @var \OwenIt\Auditing\Contracts\Audit|null
+     * @var \wilianx7\Auditing\Contracts\Audit|null
      */
     public $audit;
 
     /**
      * Create a new Audited event instance.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable   $model
-     * @param \OwenIt\Auditing\Contracts\AuditDriver $driver
-     * @param \OwenIt\Auditing\Contracts\Audit       $audit
+     * @param \wilianx7\Auditing\Contracts\Auditable   $model
+     * @param \wilianx7\Auditing\Contracts\AuditDriver $driver
+     * @param \wilianx7\Auditing\Contracts\Audit       $audit
      */
     public function __construct(Auditable $model, AuditDriver $driver, Audit $audit = null)
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Casts;
+namespace wilianx7\Auditing\Tests\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use OwenIt\Auditing\Tests\Models\Money as MoneyValueObject;
+use wilianx7\Auditing\Tests\Models\Money as MoneyValueObject;
 
 class Money implements CastsAttributes
 {

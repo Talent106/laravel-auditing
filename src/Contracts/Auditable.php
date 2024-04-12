@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Contracts;
+namespace wilianx7\Auditing\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -9,7 +9,7 @@ interface Auditable
     /**
      * Auditable Model audits.
      *
-     * @return MorphMany<\OwenIt\Auditing\Models\Audit>
+     * @return MorphMany<\wilianx7\Auditing\Models\Audit>
      */
     public function audits(): MorphMany;
 
@@ -46,7 +46,7 @@ interface Auditable
     /**
      * Return data for an Audit.
      *
-     * @throws \OwenIt\Auditing\Exceptions\AuditingException
+     * @throws \wilianx7\Auditing\Exceptions\AuditingException
      *
      * @return array
      */
@@ -123,7 +123,7 @@ interface Auditable
      * @param Audit $audit
      * @param bool  $old
      *
-     * @throws \OwenIt\Auditing\Exceptions\AuditableTransitionException
+     * @throws \wilianx7\Auditing\Exceptions\AuditableTransitionException
      *
      * @return Auditable
      */

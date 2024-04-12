@@ -1,6 +1,6 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace wilianx7\Auditing\Tests\Models;
 
 use NumberFormatter;
 

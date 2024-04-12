@@ -1,8 +1,8 @@
 <?php
 
-namespace OwenIt\Auditing\Events;
+namespace wilianx7\Auditing\Events;
 
-use OwenIt\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Auditable;
 
 class DispatchAudit
 {

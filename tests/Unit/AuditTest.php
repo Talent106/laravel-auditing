@@ -1,16 +1,16 @@
 <?php
 
-namespace OwenIt\Auditing\Tests;
+namespace wilianx7\Auditing\Tests;
 
 use Carbon\Carbon;
 use DateTimeInterface;
-use OwenIt\Auditing\Encoders\Base64Encoder;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Redactors\LeftRedactor;
-use OwenIt\Auditing\Resolvers\UrlResolver;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\Money;
-use OwenIt\Auditing\Tests\Models\User;
+use wilianx7\Auditing\Encoders\Base64Encoder;
+use wilianx7\Auditing\Models\Audit;
+use wilianx7\Auditing\Redactors\LeftRedactor;
+use wilianx7\Auditing\Resolvers\UrlResolver;
+use wilianx7\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Tests\Models\Money;
+use wilianx7\Auditing\Tests\Models\User;
 
 class AuditTest extends AuditingTestCase
 {
@@ -318,7 +318,7 @@ class AuditTest extends AuditingTestCase
             'audit_created_at' => $created_at,
             'audit_updated_at' => $updated_at,
             'user_id' => 1,
-            'user_type' => 'OwenIt\\Auditing\\Tests\\Models\\User',
+            'user_type' => 'wilianx7\\Auditing\\Tests\\Models\\User',
             'audit_url' => UrlResolver::resolveCommandLine(),
             'audit_ip_address' => '127.0.0.1',
             'audit_user_agent' => 'Symfony',

@@ -1,13 +1,13 @@
 <?php
 
-namespace OwenIt\Auditing\Tests;
+namespace wilianx7\Auditing\Tests;
 
-use OwenIt\Auditing\Models\Audit;
+use wilianx7\Auditing\Models\Audit;
 use Illuminate\Support\Facades\Event;
-use OwenIt\Auditing\AuditableObserver;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Events\DispatchAudit;
-use OwenIt\Auditing\Events\DispatchingAudit;
+use wilianx7\Auditing\AuditableObserver;
+use wilianx7\Auditing\Tests\Models\Article;
+use wilianx7\Auditing\Events\DispatchAudit;
+use wilianx7\Auditing\Events\DispatchingAudit;
 
 class AuditableObserverTest extends AuditingTestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace OwenIt\Auditing\Tests\fixtures;
+namespace wilianx7\Auditing\Tests\fixtures;
 
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Contracts\Auditable;
+use wilianx7\Auditing\Contracts\Resolver;
 
 class TenantResolver implements Resolver
 {

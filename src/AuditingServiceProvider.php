@@ -1,13 +1,13 @@
 <?php
 
-namespace OwenIt\Auditing;
+namespace wilianx7\Auditing;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use OwenIt\Auditing\Console\AuditDriverCommand;
-use OwenIt\Auditing\Console\AuditResolverCommand;
-use OwenIt\Auditing\Console\InstallCommand;
-use OwenIt\Auditing\Contracts\Auditor;
+use wilianx7\Auditing\Console\AuditDriverCommand;
+use wilianx7\Auditing\Console\AuditResolverCommand;
+use wilianx7\Auditing\Console\InstallCommand;
+use wilianx7\Auditing\Contracts\Auditor;
 
 class AuditingServiceProvider extends ServiceProvider
 {
@@ -36,7 +36,7 @@ class AuditingServiceProvider extends ServiceProvider
         ]);
 
         $this->app->singleton(Auditor::class, function ($app) {
-            return new \OwenIt\Auditing\Auditor($app);
+            return new \wilianx7\Auditing\Auditor($app);
         });
 
         $this->app->register(AuditingEventServiceProvider::class);
