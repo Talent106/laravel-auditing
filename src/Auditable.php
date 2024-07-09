@@ -2,16 +2,22 @@
 
 namespace wilianx7\Auditing;
 
+use Closure;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
+use Throwable;
+use UnitEnum;
 use wilianx7\Auditing\Contracts\AttributeEncoder;
 use wilianx7\Auditing\Contracts\AttributeRedactor;
 use wilianx7\Auditing\Contracts\Resolver;
+use wilianx7\Auditing\Contracts\UserResolver;
 use wilianx7\Auditing\Events\AuditCustom;
 use wilianx7\Auditing\Exceptions\AuditableTransitionException;
 use wilianx7\Auditing\Exceptions\AuditingException;
@@ -129,7 +135,7 @@ trait Auditable
                 is_array($value) ||
                 (is_object($value) &&
                     !method_exists($value, '__toString') &&
-                    !($value instanceof \UnitEnum))
+                    !($value instanceof UnitEnum))
             ) {
                 $this->excludedAttributes[] = $attribute;
             }
@@ -339,14 +345,14 @@ trait Auditable
         $user = $this->resolveUser();
 
         return $this->transformAudit(array_merge([
-            'old_values'           => $old,
-            'new_values'           => $new,
-            'event'                => $this->auditEvent,
-            'auditable_id'         => $this->getKey(),
-            'auditable_type'       => $this->getMorphClass(),
-            $morphPrefix . '_id'   => $user ? $user->getAuthIdentifier() : null,
+            'old_values' => $old,
+            'new_values' => $new,
+            'event' => $this->auditEvent,
+            'auditable_id' => $this->getKey(),
+            'auditable_type' => $this->getMorphClass(),
+            $morphPrefix . '_id' => $user ? $user->getAuthIdentifier() : null,
             $morphPrefix . '_type' => $user ? $user->getMorphClass() : null,
-            'tags'                 => empty($tags) ? null : $tags,
+            'tags' => empty($tags) ? null : $tags,
         ], $this->runResolvers()));
     }
 
@@ -367,10 +373,10 @@ trait Auditable
      */
     protected function resolveUser()
     {
-        if (! empty($this->preloadedResolverData['user'] ?? null)) {
+        if (!empty($this->preloadedResolverData['user'] ?? null)) {
             return $this->preloadedResolverData['user'];
         }
-        
+
         $userResolver = Config::get('audit.user.resolver');
 
         if (is_null($userResolver) && Config::has('audit.resolver') && !Config::has('audit.user.resolver')) {
@@ -381,7 +387,7 @@ trait Auditable
             $userResolver = Config::get('audit.resolver.user');
         }
 
-        if (is_subclass_of($userResolver, \wilianx7\Auditing\Contracts\UserResolver::class)) {
+        if (is_subclass_of($userResolver, UserResolver::class)) {
             return call_user_func([$userResolver, 'resolve'], $this);
         }
 
@@ -669,7 +675,7 @@ trait Auditable
      * @param array $attributes
      * @param bool $touch
      * @param array $columns
-     * @param \Closure|null $callback
+     * @param Closure|null $callback
      * @return void
      * @throws AuditingException
      */
@@ -679,13 +685,13 @@ trait Auditable
 
         $relationCall = $this->{$relationName}();
 
-        if ($callback instanceof \Closure) {
+        if ($callback instanceof Closure) {
             $this->applyClosureToRelationship($relationCall, $callback);
         }
 
-        $old = $relationCall->get($columns);
+        $old = $this->unsetRelationAndAppends($relationCall->get($columns));
         $relationCall->attach($id, $attributes, $touch);
-        $new = $relationCall->get($columns);
+        $new = $this->unsetRelationAndAppends($relationCall->get($columns));
 
         $this->dispatchRelationAuditEvent($relationName, 'attach', $old, $new);
     }
@@ -695,7 +701,7 @@ trait Auditable
      * @param mixed $ids
      * @param bool $touch
      * @param array $columns
-     * @param \Closure|null $callback
+     * @param Closure|null $callback
      * @return int
      * @throws AuditingException
      */
@@ -705,13 +711,13 @@ trait Auditable
 
         $relationCall = $this->{$relationName}();
 
-        if ($callback instanceof \Closure) {
+        if ($callback instanceof Closure) {
             $this->applyClosureToRelationship($relationCall, $callback);
         }
 
-        $old = $relationCall->get($columns);
+        $old = $this->unsetRelationAndAppends($relationCall->get($columns));
         $results = $relationCall->detach($ids, $touch);
-        $new = $relationCall->get($columns);
+        $new = $this->unsetRelationAndAppends($relationCall->get($columns));
 
         $this->dispatchRelationAuditEvent($relationName, 'detach', $old, $new);
 
@@ -720,10 +726,10 @@ trait Auditable
 
     /**
      * @param string $relationName
-     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param Collection|Model|array $ids
      * @param bool $detaching
      * @param array $columns
-     * @param \Closure|null $callback
+     * @param Closure|null $callback
      * @return array
      * @throws AuditingException
      */
@@ -733,7 +739,7 @@ trait Auditable
 
         $relationCall = $this->{$relationName}();
 
-        if ($callback instanceof \Closure) {
+        if ($callback instanceof Closure) {
             $this->applyClosureToRelationship($relationCall, $callback);
         }
 
@@ -746,6 +752,9 @@ trait Auditable
             $new = $relationCall->get($columns);
         }
 
+        $old = $this->unsetRelationAndAppends($old);
+        $new = $this->unsetRelationAndAppends($new);
+
         $this->dispatchRelationAuditEvent($relationName, 'sync', $old, $new);
 
         return $changes;
@@ -753,9 +762,9 @@ trait Auditable
 
     /**
      * @param string $relationName
-     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param Collection|Model|array $ids
      * @param array $columns
-     * @param \Closure|null $callback
+     * @param Closure|null $callback
      * @return array
      * @throws AuditingException
      */
@@ -769,8 +778,8 @@ trait Auditable
     /**
      * @param string $relationName
      * @param string $event
-     * @param \Illuminate\Support\Collection $old
-     * @param \Illuminate\Support\Collection $new
+     * @param Collection $old
+     * @param Collection $new
      * @return void
      */
     private function dispatchRelationAuditEvent($relationName, $event, $old, $new)
@@ -798,12 +807,22 @@ trait Auditable
         }
     }
 
-    private function applyClosureToRelationship(BelongsToMany $relation, \Closure $closure): void
+    private function applyClosureToRelationship(BelongsToMany $relation, Closure $closure): void
     {
         try {
             $closure($relation);
-        } catch (\Throwable $exception) {
+        } catch (Throwable $exception) {
             throw new AuditingException("Invalid Closure for {$relation->getRelationName()} Relationship");
         }
+    }
+
+    private function unsetRelationAndAppends(Collection $models): Collection
+    {
+        return $models->map(function (Model $model) {
+            $model->unsetRelations();
+            $model->setAppends([]);
+
+            return $model;
+        });
     }
 }
